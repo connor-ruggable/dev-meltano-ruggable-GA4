@@ -1,0 +1,14 @@
+[
+  {
+    "name": "lp_cvr",
+    "dimensions": [
+      "date",
+      "country",
+      "contentGroup"
+    ],
+    "metrics": [
+      "sessions",
+      "transactions"
+    ]
+  }
+]

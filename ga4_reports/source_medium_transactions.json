@@ -1,0 +1,16 @@
+[
+  {
+    "name": "source_medium_transactions",
+    "dimensions": [
+      "date",
+      "medium",
+      "source",
+      "sourceMedium",
+      "campaignId",
+      "transactionId"
+    ],
+    "metrics": [
+      "transactions"
+    ]
+  }
+]

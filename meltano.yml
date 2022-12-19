@@ -1,0 +1,93 @@
+version: 1
+default_environment: dev
+project_id: 008ce74c-9dd4-4a5f-9ec9-f4f00ee14e80
+environments:
+- name: dev
+- name: staging
+- name: prod
+plugins:
+  extractors:
+  - name: tap-google-analytics-v4
+    namespace: tap_google_analytics_v4
+    pip_url: git+https://github.com/connor-ruggable/tap-google-analytics-v4.git
+    executable: tap-google-analytics
+    capabilities:
+    - catalog
+    - discover
+    - state
+    - about
+    - stream-maps
+    settings:
+    - name: key_file_location
+    - name: reports
+    - name: property_id
+    - name: start_date
+      kind: date_iso8601
+    - name: end_date
+      kind: date_iso8601
+    config:
+      start_date: '2022-12-01'
+      end_date: '2022-12-02'
+      property_id: '312481822'
+      key_file_location: /Users/connorflynn/meltano_projects/ruggable-ga-meltano/.meltano/client_secrets.json
+  - name: tap-ruggable-google-analytics-v4-us
+    inherit_from: tap-google-analytics-v4
+    config:
+      property_id: '338235149'
+  - name: tap-ruggable-google-analytics-v4-lp-cvr-us
+    inherit_from: tap-ruggable-google-analytics-v4-us
+    config:
+      reports: /Users/connorflynn/meltano_projects/ruggable-ga-meltano/ga4_reports/lp_cvr.json
+  - name: tap-ruggable-google-analytics-v4-new-vs-returning-conversions-us
+    inherit_from: tap-ruggable-google-analytics-v4-us
+    config:
+      reports: /Users/connorflynn/meltano_projects/ruggable-ga-meltano/ga4_reports/new_vs_returning_conversions.json
+  - name: tap-ruggable-google-analytics-v4-email-modal-sessions-us
+    inherit_from: tap-ruggable-google-analytics-v4-us
+    config:
+      reports: /Users/connorflynn/meltano_projects/ruggable-ga-meltano/ga4_reports/email_modal_sessions.json
+  - name: tap-ruggable-google-analytics-v4-country-device-metrics-us
+    inherit_from: tap-ruggable-google-analytics-v4-us
+    config:
+      reports: /Users/connorflynn/meltano_projects/ruggable-ga-meltano/ga4_reports/country_device_metrics.json
+  - name: tap-ruggable-google-analytics-v4-source-medium-transactions-us
+    inherit_from: tap-ruggable-google-analytics-v4-us
+    config:
+      reports: /Users/connorflynn/meltano_projects/ruggable-ga-meltano/ga4_reports/source_medium_transactions.json
+  - name: tap-ruggable-google-analytics-v4-sourcemedium-campaign-sessions-us
+    inherit_from: tap-ruggable-google-analytics-v4-us
+    config:
+      reports: /Users/connorflynn/meltano_projects/ruggable-ga-meltano/ga4_reports/sourcemedium_campaign_sessions.json
+  - name: tap-tapcart-google-analytics-v4-us
+    inherit_from: tap-google-analytics-v4
+  - name: tap-tapcart-google-analytics-v4-new-vs-returning-conversions-us
+    inherit_from: tap-tapcart-google-analytics-v4-us
+    config:
+      reports: /Users/connorflynn/meltano_projects/ruggable-ga-meltano/ga4_reports/new_vs_returning_conversions.json
+  - name: tap-tapcart-google-analytics-v4-sourcemedium-campaign-sessions-us
+    inherit_from: tap-tapcart-google-analytics-v4-us
+    config:
+      reports: /Users/connorflynn/meltano_projects/ruggable-ga-meltano/ga4_reports/sourcemedium_campaign_sessions.json
+  loaders:
+  - name: target-csv
+    variant: hotgluexyz
+    pip_url: git+https://github.com/hotgluexyz/target-csv.git
+    config:
+      destination_path: output
+  - name: target-s3-jsonl
+    namespace: target_s3_jsonl
+    pip_url: git+https://github.com/ome9ax/target-s3-jsonl.git
+    executable: target-s3-jsonl
+    settings:
+    - name: aws_access_key_id
+      kind: password
+    - name: aws_secret_access_key
+      kind: password
+    - name: s3_bucket
+    - name: s3_key_prefix
+    - name: path_template
+    - name: path_template
+    config:
+      s3_bucket: prd-mde-datalake
+      s3_key_prefix: ''
+      path_template: ruggable/google-analytics/us/raw/{name}/{name}_{date_time}.json
