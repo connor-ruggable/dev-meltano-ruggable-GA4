@@ -90,4 +90,4 @@ plugins:
     config:
       s3_bucket: prd-mde-datalake
       s3_key_prefix: ''
-      path_template: ruggable/google-analytics/us/raw/{name}/{name}_{date_time}.json
+      path_template: ruggable/google-analytics/us/raw/{stream}/{stream}_{date_time}.json
