@@ -28,8 +28,7 @@ plugins:
     config:
       start_date: '2022-12-01'
       end_date: '2022-12-02'
-      property_id: '312481822'
-      key_file_location: /Users/connorflynn/meltano_projects/ruggable-ga-meltano/.meltano/client_secrets.json
+      key_file_location: /Users/connorflynn/meltano_projects/ruggable-ga-meltano/.meltano/meltano_GA4_client_secrets.json
   - name: tap-ruggable-google-analytics-v4-us
     inherit_from: tap-google-analytics-v4
     config:
@@ -60,6 +59,8 @@ plugins:
       reports: /Users/connorflynn/meltano_projects/ruggable-ga-meltano/ga4_reports/sourcemedium_campaign_sessions.json
   - name: tap-tapcart-google-analytics-v4-us
     inherit_from: tap-google-analytics-v4
+    config:
+      property_id: '312481822'
   - name: tap-tapcart-google-analytics-v4-new-vs-returning-conversions-us
     inherit_from: tap-tapcart-google-analytics-v4-us
     config:
@@ -68,6 +69,18 @@ plugins:
     inherit_from: tap-tapcart-google-analytics-v4-us
     config:
       reports: /Users/connorflynn/meltano_projects/ruggable-ga-meltano/ga4_reports/sourcemedium_campaign_sessions.json
+  - name: tap-ruggable-google-analytics-v4-au
+    inherit_from: tap-google-analytics-v4
+    config:
+      property_id: '314022085'
+  - name: tap-ruggable-google-analytics-v4-de
+    inherit_from: tap-google-analytics-v4
+    config:
+      property_id: '338272918'
+  - name: tap-ruggable-google-analytics-v4-uk
+    inherit_from: tap-google-analytics-v4
+    config:
+      property_id: '338243424'
   loaders:
   - name: target-csv
     variant: hotgluexyz
