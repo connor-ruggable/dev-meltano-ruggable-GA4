@@ -86,7 +86,7 @@ plugins:
     - name: s3_bucket
     - name: s3_key_prefix
     - name: path_template
-    - name: path_template
+    - name: naming_convention
     config:
       s3_bucket: prd-mde-datalake
       s3_key_prefix: ''
