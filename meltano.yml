@@ -36,23 +36,23 @@ plugins:
   - name: tap-ruggable-google-analytics-v4-lp-cvr-us
     inherit_from: tap-ruggable-google-analytics-v4-us
     config:
-      reports: /Users/connorflynn/meltano_projects/ruggable-ga-meltano/ga4_reports/lp_cvr.json
+      reports: $MELTANO_PROJECT_ROOT/ga4_reports/lp_cvr.json
   - name: tap-ruggable-google-analytics-v4-new-vs-returning-conversions-us
     inherit_from: tap-ruggable-google-analytics-v4-us
     config:
-      reports: /Users/connorflynn/meltano_projects/ruggable-ga-meltano/ga4_reports/new_vs_returning_conversions.json
+      reports: $MELTANO_PROJECT_ROOT/ga4_reports/new_vs_returning_conversions.json
   - name: tap-ruggable-google-analytics-v4-email-modal-sessions-us
     inherit_from: tap-ruggable-google-analytics-v4-us
     config:
-      reports: /Users/connorflynn/meltano_projects/ruggable-ga-meltano/ga4_reports/email_modal_sessions.json
+      reports: $MELTANO_PROJECT_ROOT/ga4_reports/email_modal_sessions.json
   - name: tap-ruggable-google-analytics-v4-country-device-metrics-us
     inherit_from: tap-ruggable-google-analytics-v4-us
     config:
-      reports: /Users/connorflynn/meltano_projects/ruggable-ga-meltano/ga4_reports/country_device_metrics.json
+      reports: $MELTANO_PROJECT_ROOT/ga4_reports/country_device_metrics.json
   - name: tap-ruggable-google-analytics-v4-source-medium-transactions-us
     inherit_from: tap-ruggable-google-analytics-v4-us
     config:
-      reports: /Users/connorflynn/meltano_projects/ruggable-ga-meltano/ga4_reports/source_medium_transactions.json
+      reports: $MELTANO_PROJECT_ROOT/ga4_reports/source_medium_transactions.json
   - name: tap-ruggable-google-analytics-v4-sourcemedium-campaign-sessions-us
     inherit_from: tap-ruggable-google-analytics-v4-us
     config:
@@ -64,11 +64,11 @@ plugins:
   - name: tap-tapcart-google-analytics-v4-new-vs-returning-conversions-us
     inherit_from: tap-tapcart-google-analytics-v4-us
     config:
-      reports: /Users/connorflynn/meltano_projects/ruggable-ga-meltano/ga4_reports/new_vs_returning_conversions.json
+      reports: $MELTANO_PROJECT_ROOT/ga4_reports/new_vs_returning_conversions.json
   - name: tap-tapcart-google-analytics-v4-sourcemedium-campaign-sessions-us
     inherit_from: tap-tapcart-google-analytics-v4-us
     config:
-      reports: /Users/connorflynn/meltano_projects/ruggable-ga-meltano/ga4_reports/sourcemedium_campaign_sessions.json
+      reports: $MELTANO_PROJECT_ROOT/ga4_reports/sourcemedium_campaign_sessions.json
   - name: tap-ruggable-google-analytics-v4-au
     inherit_from: tap-google-analytics-v4
     config:
