@@ -28,7 +28,7 @@ plugins:
     config:
       start_date: '2022-12-01'
       end_date: '2022-12-02'
-      key_file_location: /Users/connorflynn/meltano_projects/ruggable-ga-meltano/.meltano/meltano_GA4_client_secrets.json
+      key_file_location: $MELTANO_PROJECT_ROOT/.meltano/meltano_GA4_client_secrets.json
   - name: tap-ruggable-google-analytics-v4-us
     inherit_from: tap-google-analytics-v4
     config:
@@ -56,7 +56,7 @@ plugins:
   - name: tap-ruggable-google-analytics-v4-sourcemedium-campaign-sessions-us
     inherit_from: tap-ruggable-google-analytics-v4-us
     config:
-      reports: /Users/connorflynn/meltano_projects/ruggable-ga-meltano/ga4_reports/sourcemedium_campaign_sessions.json
+      reports: $MELTANO_PROJECT_ROOT/ga4_reports/sourcemedium_campaign_sessions.json
   - name: tap-tapcart-google-analytics-v4-us
     inherit_from: tap-google-analytics-v4
     config:
